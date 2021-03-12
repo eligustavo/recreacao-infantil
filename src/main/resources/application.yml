@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: recreacao_infantil
+  datasource:
+    url: jdbc:mysql://localhost:3306/recreacao_infantil?createDatabaseIfNotExist=true
+    username: root
+    password: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, prometheus
+# Logger configuration
+logging:
+  pattern:
+    console: "%d %-5level %logger : %msg%n"
+  level:
+    org.springframework: info
+    org.hibernate: debug
+# Server configuration
+server:
+  error:
+    include-stacktrace: on_param
